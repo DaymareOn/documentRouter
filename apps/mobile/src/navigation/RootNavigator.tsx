@@ -10,8 +10,6 @@ export const RootNavigator: React.FC = () => {
 
   useEffect(() => {
     void initialize();
-    // initialize is a stable zustand action reference
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (isInitializing) {

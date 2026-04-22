@@ -51,6 +51,9 @@ jobs:
       - name: Build shared-types (required by rule-engine tests)
         run: npm run build --workspace=packages/shared-types
 
+      - name: Build rule-engine (required by API tests)
+        run: npm run build --workspace=packages/rule-engine
+
       - name: Run tests
         run: npm run test
 

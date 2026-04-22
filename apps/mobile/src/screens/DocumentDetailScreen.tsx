@@ -22,7 +22,6 @@ export const DocumentDetailScreen: React.FC = () => {
 
   useEffect(() => {
     void fetchDocument(documentId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [documentId]);
 
   if (isLoading || !selectedDocument) {
