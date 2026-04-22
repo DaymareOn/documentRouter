@@ -1,6 +1,5 @@
 import request from 'supertest';
 import { app } from '../app';
-import { getPool } from '../db/pool';
 
 jest.mock('../db/pool', () => {
   const mockQuery = jest.fn();

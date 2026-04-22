@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "VibeRouter",
+    "slug": "vibe-router",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.viberouter.mobile"
+    },
+    "android": {
+      "package": "com.viberouter.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "extra": {
+      "apiUrl": "http://localhost:3000"
+    }
+  }
+}
