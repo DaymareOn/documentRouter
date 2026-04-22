@@ -23,8 +23,8 @@ export class TesseractProvider implements OcrProvider {
     let confidence = 0;
 
     try {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const Tesseract = require('tesseract.js') as typeof import('tesseract.js');
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any
+      const Tesseract = require('tesseract.js') as any;
       const result = await Tesseract.recognize(buffer, 'eng');
       text = result.data.text;
       confidence = result.data.confidence / 100;
