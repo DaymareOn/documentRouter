@@ -1,5 +1,8 @@
 import { z } from 'zod';
 
+/** Maximum allowed upload size: 100 MB */
+const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
+
 export const emailSchema = z.string().email();
 export const passwordSchema = z.string().min(8).max(128);
 export const uuidSchema = z.string().uuid();
@@ -19,7 +22,7 @@ export const registerSchema = z.object({
 export const documentUploadSchema = z.object({
   filename: z.string().min(1).max(255),
   mimeType: z.string(),
-  size: z.number().positive().max(100 * 1024 * 1024), // 100MB max
+  size: z.number().positive().max(MAX_UPLOAD_BYTES),
   source: z.enum(['upload', 'email', 'scanner', 'api']),
   tags: z.array(z.string()).optional(),
 });

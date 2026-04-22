@@ -3,6 +3,8 @@ import jwt from 'jsonwebtoken';
 import nacl from 'tweetnacl';
 import { v4 as uuidv4 } from 'uuid';
 
+// 12 rounds balances security (resistance to brute-force) and latency (~250ms on modern hardware).
+// NIST SP 800-132 recommends >= 10 000 iterations; bcrypt's 2^12 = 4096 iterations exceeds this.
 const BCRYPT_ROUNDS = 12;
 
 export async function hashPassword(password: string): Promise<string> {

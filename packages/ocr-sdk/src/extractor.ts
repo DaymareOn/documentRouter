@@ -16,14 +16,15 @@ const CURRENCY_SYMBOLS: Record<string, string> = {
   GBP: 'GBP',
 };
 
+// Non-backtracking patterns: capture up to 80 non-newline chars then stop at a clear delimiter.
 const SENDER_PATTERNS = [
-  /(?:from|sender|issued by)[:\s]+([A-Z][A-Za-z\s&.,]+?)(?:\n|,|$)/i,
-  /^([A-Z][A-Za-z\s&.,]+?)\s*\n/m,
+  /(?:from|sender|issued by)[:\s]+([^\n,]{1,80})(?:,|\n|$)/i,
+  /^([A-Z][^\n]{1,79})\n/m,
 ];
 
 const RECIPIENT_PATTERNS = [
-  /(?:to|recipient|bill to|ship to)[:\s]+([A-Z][A-Za-z\s&.,]+?)(?:\n|,|$)/i,
-  /(?:attn|attention)[:\s]+([A-Z][A-Za-z\s&.,]+?)(?:\n|,|$)/i,
+  /(?:to|recipient|bill to|ship to)[:\s]+([^\n,]{1,80})(?:,|\n|$)/i,
+  /(?:attn|attention)[:\s]+([^\n,]{1,80})(?:,|\n|$)/i,
 ];
 
 const LANGUAGE_PATTERNS: Record<string, RegExp> = {
