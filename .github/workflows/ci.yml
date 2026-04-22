@@ -51,5 +51,35 @@ jobs:
       - name: Build shared-types (required by rule-engine tests)
         run: npm run build --workspace=packages/shared-types
 
+      - name: Build rule-engine (required by API tests)
+        run: npm run build --workspace=packages/rule-engine
+
       - name: Run tests
         run: npm run test
+
+  e2e:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    needs: lint-and-build
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build packages
+        run: npm run build
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run E2E tests
+        run: npm run test:e2e

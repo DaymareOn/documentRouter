@@ -6,7 +6,7 @@ const DATE_PATTERNS = [
   /\b(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{4})\b/i,
 ];
 
-const AMOUNT_PATTERN = /(?:USD|EUR|GBP|[\$€£])\s*(\d{1,3}(?:[,\s]\d{3})*(?:\.\d{2})?)/i;
+const AMOUNT_PATTERN = /(?:USD|EUR|GBP|[$€£])\s*(\d{1,3}(?:[,\s]\d{3})*(?:\.\d{2})?)/i;
 const CURRENCY_SYMBOLS: Record<string, string> = {
   $: 'USD',
   '€': 'EUR',
@@ -73,7 +73,7 @@ function extractAmount(text: string): { amount: number; currency: string } | und
   const match = text.match(AMOUNT_PATTERN);
   if (!match) return undefined;
 
-  const rawSymbol = match[0].match(/USD|EUR|GBP|[\$€£]/i)?.[0] || '';
+  const rawSymbol = match[0].match(/USD|EUR|GBP|[$€£]/i)?.[0] || '';
   const currency = CURRENCY_SYMBOLS[rawSymbol.toUpperCase()] || CURRENCY_SYMBOLS[rawSymbol] || 'USD';
   const amount = parseFloat(match[1].replace(/[,\s]/g, ''));
 
