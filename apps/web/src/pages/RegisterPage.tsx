@@ -14,7 +14,7 @@ function getPasswordStrength(password: string): { score: number; label: string; 
   if (/[0-9]/.test(password)) score++;
   if (/[^A-Za-z0-9]/.test(password)) score++;
   const levels = [
-    { label: '', color: 'var(--color-border)' },
+    { label: 'Weak', color: 'var(--color-danger)' },
     { label: 'Weak', color: 'var(--color-danger)' },
     { label: 'Fair', color: 'var(--color-warning)' },
     { label: 'Good', color: '#65a30d' },

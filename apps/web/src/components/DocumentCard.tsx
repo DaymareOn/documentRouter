@@ -73,7 +73,7 @@ export function DocumentCard({ document, onDelete, onDownload, onView }: Documen
           <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem' }}>
             {onView && (
               <Button variant="ghost" size="sm" onClick={() => onView(document.id)}>
-                <Eye size={14} /> {t('common.view')}
+                <Eye size={14} /> {t('documents.viewDetails')}
               </Button>
             )}
             {onDownload && (
