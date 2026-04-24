@@ -1,6 +1,6 @@
-# GitHub Copilot Instructions for athleteManager
+# GitHub Copilot Instructions for DocumentRouter
 
-You are assisting with the development of the athleteManager project. Before generating any code, implementing features, or suggesting modifications, you MUST strictly adhere to the following requirements.
+You are assisting with the development of the DocumentRouter project. Before generating any code, implementing features, or suggesting modifications, you MUST strictly adhere to the following requirements.
 
 ## Development Best Practices
 
