@@ -63,7 +63,25 @@ See [docs/architecture.md](docs/architecture.md) for a detailed system design di
 
 ## Getting Started
 
-### Quick setup (recommended)
+### Windows — one-click start (easiest)
+
+1. Install the prerequisites if you haven't already:
+   - [Node.js 20+](https://nodejs.org) (includes npm)
+   - [Docker Desktop](https://www.docker.com/products/docker-desktop) (start it before continuing)
+2. Clone or download this repository.
+3. **Double-click `start.bat`** in the root of the repository.
+
+That's it. The launcher will:
+- Check that all prerequisites are installed and Docker is running.
+- Run first-time setup automatically (installs dependencies, starts Docker services, builds packages) — subsequent launches skip this step.
+- Start the API server and the web app in separate windows.
+- Open your browser at **http://localhost:5173** automatically.
+
+> **Tip:** Close the two terminal windows that open to stop the servers.
+
+---
+
+### Quick setup (command line)
 
 **macOS / Linux**
 
