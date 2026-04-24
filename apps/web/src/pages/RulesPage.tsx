@@ -116,8 +116,8 @@ export function RulesPage() {
           <Input label={t('rules.ruleDescription')} value={form.description} onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))} />
           <div style={{ display: 'flex', gap: '1rem' }}>
             <div style={{ flex: 1 }}>
-              <label style={{ fontSize: '0.875rem', fontWeight: 500, display: 'block', marginBottom: '0.375rem' }}>{t('rules.logic')}</label>
-              <select value={form.logic} onChange={(e) => setForm((f) => ({ ...f, logic: e.target.value as LogicOperator }))} style={selectStyle}>
+              <label htmlFor="logic-select" style={{ fontSize: '0.875rem', fontWeight: 500, display: 'block', marginBottom: '0.375rem' }}>{t('rules.logic')}</label>
+              <select id="logic-select" value={form.logic} onChange={(e) => setForm((f) => ({ ...f, logic: e.target.value as LogicOperator }))} style={selectStyle}>
                 <option value="AND">{t('rules.andLogic')}</option>
                 <option value="OR">{t('rules.orLogic')}</option>
               </select>
