@@ -63,7 +63,31 @@ See [docs/architecture.md](docs/architecture.md) for a detailed system design di
 
 ## Getting Started
 
-### 1. Clone and install dependencies
+### Quick setup (recommended)
+
+**macOS / Linux**
+
+```bash
+git clone https://github.com/DaymareOn/vibeCodedDocumentRouter.git
+cd vibeCodedDocumentRouter
+bash infra/scripts/setup.sh
+```
+
+**Windows** (PowerShell — run as Administrator if Docker requires elevated privileges)
+
+```powershell
+git clone https://github.com/DaymareOn/vibeCodedDocumentRouter.git
+cd vibeCodedDocumentRouter
+powershell -ExecutionPolicy Bypass -File infra\scripts\setup.ps1
+```
+
+Both scripts check all prerequisites, install npm dependencies, copy the example environment file, start the Docker services (PostgreSQL, Redis, MinIO), and build the shared packages automatically.
+
+---
+
+### Manual setup
+
+#### 1. Clone and install dependencies
 
 ```bash
 git clone https://github.com/DaymareOn/vibeCodedDocumentRouter.git
@@ -71,7 +95,7 @@ cd vibeCodedDocumentRouter
 npm install
 ```
 
-### 2. Start local infrastructure
+#### 2. Start local infrastructure
 
 ```bash
 cd infra
@@ -80,12 +104,18 @@ docker-compose up -d
 
 This starts PostgreSQL, Redis, and MinIO.
 
-### 3. Configure environment
+#### 3. Configure environment
 
 Copy and edit the API environment file:
 
 ```bash
+# macOS / Linux
 cp apps/api/.env.example apps/api/.env
+```
+
+```powershell
+# Windows PowerShell
+Copy-Item apps\api\.env.example apps\api\.env
 ```
 
 Key variables:
@@ -101,23 +131,23 @@ Key variables:
 | `S3_ACCESS_KEY` | `minioadmin` | Storage access key |
 | `S3_SECRET_KEY` | `minioadmin` | Storage secret key |
 
-### 4. Run database migrations
+#### 4. Run database migrations
 
 ```bash
 npm run migrate --workspace=apps/api
 ```
 
-### 5. Start development servers
+#### 5. Start development servers
 
 ```bash
-# API (http://localhost:3000)
+# API (http://localhost:3001)
 npm run dev:api
 
 # Web app (http://localhost:5173)
 npm run dev:web
 ```
 
-### 6. Mobile app
+#### 6. Mobile app
 
 ```bash
 cd apps/mobile
