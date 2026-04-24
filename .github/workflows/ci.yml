@@ -54,8 +54,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build shared-types (required by rule-engine tests)
+      - name: Build shared-types (required by shared-utils and rule-engine)
         run: npm run build --workspace=packages/shared-types
+
+      - name: Build shared-utils (required by API)
+        run: npm run build --workspace=packages/shared-utils
 
       - name: Build rule-engine (required by API tests)
         run: npm run build --workspace=packages/rule-engine

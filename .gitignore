@@ -26,6 +26,9 @@ lerna-debug.log*
 .DS_Store
 Thumbs.db
 
+# Windows launcher — first-time setup flag (generated locally by start.bat)
+.setup_done
+
 # Test coverage
 coverage/
 .nyc_output/
