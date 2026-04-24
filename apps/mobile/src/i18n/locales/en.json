@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "unknown": "Unknown"
+  },
+  "auth": {
+    "loginTitle": "Welcome Back",
+    "registerTitle": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "loginButton": "Sign In",
+    "registerButton": "Sign Up",
+    "noAccount": "Don't have an account? Sign Up",
+    "hasAccount": "Already have an account? Sign In",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "namePlaceholder": "Enter your full name"
+  },
+  "documents": {
+    "title": "Documents",
+    "empty": "No documents found",
+    "status": {
+      "pending": "Pending",
+      "processing": "Processing",
+      "processed": "Processed",
+      "failed": "Failed",
+      "archived": "Archived"
+    },
+    "source": {
+      "upload": "Upload",
+      "email": "Email",
+      "scanner": "Scanner",
+      "api": "API"
+    }
+  },
+  "documentDetail": {
+    "title": "Document Details",
+    "filename": "Filename",
+    "status": "Status",
+    "size": "Size",
+    "source": "Source",
+    "mimeType": "File Type",
+    "createdAt": "Created At",
+    "updatedAt": "Updated At",
+    "tags": "Tags",
+    "noTags": "No tags",
+    "metadata": "Metadata",
+    "bytes": "bytes"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "english": "English",
+    "french": "Français",
+    "account": "Account",
+    "email": "Email",
+    "name": "Name",
+    "role": "Role",
+    "logout": "Logout",
+    "logoutConfirm": "Are you sure you want to logout?",
+    "appVersion": "App Version",
+    "version": "1.0.0"
+  }
+}

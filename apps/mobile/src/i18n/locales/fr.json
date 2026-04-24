@@ -1,0 +1,70 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "close": "Fermer",
+    "unknown": "Inconnu"
+  },
+  "auth": {
+    "loginTitle": "Bienvenue",
+    "registerTitle": "Créer un compte",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "name": "Nom complet",
+    "loginButton": "Se connecter",
+    "registerButton": "S'inscrire",
+    "noAccount": "Pas de compte ? S'inscrire",
+    "hasAccount": "Déjà un compte ? Se connecter",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "namePlaceholder": "Entrez votre nom complet"
+  },
+  "documents": {
+    "title": "Documents",
+    "empty": "Aucun document trouvé",
+    "status": {
+      "pending": "En attente",
+      "processing": "En cours",
+      "processed": "Traité",
+      "failed": "Échoué",
+      "archived": "Archivé"
+    },
+    "source": {
+      "upload": "Téléchargement",
+      "email": "E-mail",
+      "scanner": "Scanner",
+      "api": "API"
+    }
+  },
+  "documentDetail": {
+    "title": "Détails du document",
+    "filename": "Nom du fichier",
+    "status": "Statut",
+    "size": "Taille",
+    "source": "Source",
+    "mimeType": "Type de fichier",
+    "createdAt": "Créé le",
+    "updatedAt": "Mis à jour le",
+    "tags": "Étiquettes",
+    "noTags": "Pas d'étiquettes",
+    "metadata": "Métadonnées",
+    "bytes": "octets"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "english": "English",
+    "french": "Français",
+    "account": "Compte",
+    "email": "E-mail",
+    "name": "Nom",
+    "role": "Rôle",
+    "logout": "Déconnexion",
+    "logoutConfirm": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "appVersion": "Version de l'application",
+    "version": "1.0.0"
+  }
+}

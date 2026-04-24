@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vibe-router-api
+  namespace: vibe-router
+  labels:
+    app: vibe-router-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vibe-router-api
+  template:
+    metadata:
+      labels:
+        app: vibe-router-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/DaymareOn/vibe-router-api:latest
+          ports:
+            - containerPort: 3001
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "3001"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: vibe-router-secrets
+                  key: database-url
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: vibe-router-secrets
+                  key: redis-url
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: vibe-router-secrets
+                  key: jwt-secret
+            - name: JWT_REFRESH_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: vibe-router-secrets
+                  key: jwt-refresh-secret
+            - name: S3_BUCKET
+              valueFrom:
+                configMapKeyRef:
+                  name: vibe-router-config
+                  key: s3-bucket
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            initialDelaySeconds: 30
+            periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vibe-router-api
+  namespace: vibe-router
+spec:
+  selector:
+    app: vibe-router-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3001
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vibe-router-ingress
+  namespace: vibe-router
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  tls:
+    - hosts:
+        - api.vibe-router.example.com
+      secretName: vibe-router-tls
+  rules:
+    - host: api.vibe-router.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vibe-router-api
+                port:
+                  number: 80

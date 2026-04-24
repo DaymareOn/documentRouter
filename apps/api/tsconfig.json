@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "composite": false,
+    "types": ["node", "jest"]
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/shared-types" },
+    { "path": "../../packages/shared-utils" },
+    { "path": "../../packages/rule-engine" },
+    { "path": "../../packages/ocr-sdk" }
+  ]
+}
